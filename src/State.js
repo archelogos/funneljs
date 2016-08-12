@@ -1,11 +1,12 @@
 'use strict';
 
-function State(sName, sBehavior) {
+function State() {
 
   // Call the parent constructor
-  Node.call(this, sName);
-	this.behavior = sBehavior;
-	this.connections = [];
+  Node.call(this);
+  this.name;
+	this.behavior;
+
 }
 
 // Inherit Node
@@ -13,21 +14,7 @@ State.prototype = Object.create(Node.prototype);
 // correct the constructor pointer
 State.prototype.constructor = Node;
 
-/**
-* @name:
-* @desc:
-* @param:
-* @return:
-* @throws:
-**/
-State.prototype.addConnections = function(cons){
-	if(cons){
-		connections = cons;
-	}
-	else{
-		throw Error('Connections not defined.')
-	}
-};
+
 
 /**
 * @name:

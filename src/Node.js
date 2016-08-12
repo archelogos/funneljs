@@ -1,43 +1,25 @@
 'use strict';
 
-function Node(nName){
+function Node(){
 
-	if (typeof nName !== 'string'){
-		throw Error('Invalid params to create a Node');
+	var id;
+	var connections;
+
+	this.getId = () => {
+		return id;
 	}
 
-	var name = nName;
-	var id = null;
+	this.getConnections = () => {
+		return connections;
+	}
 
-	var getRandom = function(){
-		return Math.round(Math.random()*Math.pow(10,6));
-	};
-
-	var setId = function(){
-		id = name+'-'+getRandom();
-	};
-
-	this.getId = function(){
-		return id;
-	};
-
-	this.getName = function(){
-		return name;
-	};
-
-	this.setName = function(n){
-		if(n){
-			name = n;
-			setId();
-		}
-		else{
-			throw Error('Undefined: '+n);
-		}
-	};
+	this.setConnections = (cons) => {
+		connections = (cons) ? cons : [];
+	}
 
 	// Init
 	(function(){
-		setId();
+		id = (Math.random()*10).toString(36);
 	})();
 
 }

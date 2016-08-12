@@ -10,5 +10,47 @@
 		<script async src="/src/Node.js"></script>
 		<script async src="/src/State.js"></script>
 		<script async src="/src/Machine.js"></script>
+
+		<script>
+			// initialize and config time
+			// funnel is a global variable (singleton pattern)
+			var states = Funnel.init(10);
+			// states is an array
+			// default behavior at the beginning of each step
+			states.config(() => {
+
+			});
+			states[0].config('name', (data) => {
+				console.log(data);
+				// do something in state[0]
+			});
+			states[1].config('name', (data) => {
+				// do something in state[0]
+				alert(data);
+			});
+
+			// on exec time
+			state[0].run({message: 'Hey Buddy!'});
+			state[1].run({message: 'I am still hungry'});
+
+			// dynamic steps
+			state[5].delete();
+
+			// one-step new State
+			var newState = Funnel.newState('name', (data) => {
+				//foo
+			});
+			// NEXT
+			state[10].next(newState);
+
+			// Define and Config state
+			var newNewState = Funnel.newState();
+			newNewState.config('name', (data) => {
+				//foo
+			});
+			state[12].previous(newNewState);
+
+
+		</script>
 	</body>
 </html>
