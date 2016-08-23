@@ -1,18 +1,18 @@
 'use strict';
 
 // Singleton Pattern
-const Register = (function(){
+const Register = (() => {
 
 	function Reg(){
 		var storage = {};
 		var hashMap = false;
 		var order;
 
-		this.getStorage = function(){
+		this.getStorage = () => {
 			return storage;
 		};
 
-		this.addNode = function(node){
+		this.addNode = (node) => {
 			for(let key in storage){
 				if(key === String(node.id)){
 					throw Error('Node: '+node.id+' already exists.');
@@ -26,7 +26,7 @@ const Register = (function(){
   var instance;
 
   return {
-    getInstance: function(){
+    getInstance: () => {
       if(!instance){
         instance = new Reg();
       }
